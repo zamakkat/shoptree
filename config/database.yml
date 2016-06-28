@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: shoptree_production
-  username: shoptree
-  password: <%= ENV['SHOPTREE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # username: shoptree
+  # password: <%= ENV['SHOPTREE_DATABASE_PASSWORD'] %>
