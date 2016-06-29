@@ -19,6 +19,7 @@ gem 'turbolinks'
 gem 'rails_utils'
 
 # App specific
+gem 'money-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
