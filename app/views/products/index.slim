@@ -11,12 +11,4 @@
         | Category 3
   .col-md-9
     / TODO: Breadcrumbs
-    - @products.each do |product|
-      .row
-        .col-sm-4.col-md-4.col-lg-4
-          .thumbnail
-            img src='http://placehold.it/320x150'
-            .caption
-              h4.pull-right = product.price
-              h4 = product.name
-              p = product.description
+    = render 'products/index', products: @products
