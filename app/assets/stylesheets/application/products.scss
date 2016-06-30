@@ -1,0 +1,21 @@
+.caption {
+  height: 130px;
+  overflow: hidden;
+
+  h4 {
+    white-space: nowrap;
+  }
+}
+
+.thumbnail {
+  padding: 0;
+
+  img {
+    width: 100%;
+  }
+
+  .caption-full {
+    padding: 9px;
+    color: #333;
+  }
+}

@@ -3,10 +3,38 @@ html lang='en'
   head
     title Shoptree
 
+    meta charset='utf-8'
+    meta http-equiv='X-UA-Compatible' content='IE=edge'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
     = csrf_meta_tags
 
   body
-    = yield
+    / Navbar
+    nav.navbar.navbar-inverse.navbar-fixed-top role='navigation'
+      .container
+        .navbar-header
+          button.navbar-toggle type='button' data-toggle='collapse' data-target='#navbar-links'
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to 'ShopTree', root_path, class: 'navbar-brand'
+        #navbar-links.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li = link_to 'Home', root_path
+
+    / Contents
+    .container.main-content
+      = yield
+
+    / Footer
+    .container
+      hr
+      footer
+        .row
+          .col-lg-12
+            Copyright &copy; ShopTree 2016
