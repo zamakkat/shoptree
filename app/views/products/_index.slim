@@ -1,10 +1,11 @@
 .products-index
   ol.breadcrumb
     li = link_to 'Products', products_path, remote: true
-    - if @category
-      - @category.ancestors.reverse_each do |ancestor|
-        li = link_to ancestor.name, products_path(category_id: ancestor), remote: true
-      li.active = @category.name
+    - if params[:category_ids]
+      li.active Search
+
+      p.pull-right Showing #{products.count} products
+
 
   .row
     - products.each do |product|
