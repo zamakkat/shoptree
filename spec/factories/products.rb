@@ -4,6 +4,6 @@ FactoryGirl.define do
     name { Faker::Commerce.product_name }
     description { Faker::Lorem.sentence(5) }
     price_cents { Faker::Commerce.price * 100 }
-    price_currency 'USD'
+    price_currency 'SGD'
   end
 end
