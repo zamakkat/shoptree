@@ -1,8 +1,9 @@
 .caption {
-  height: 130px;
+  height: 110px;
   overflow: hidden;
 
   h4 {
+    font-size: 14px;
     white-space: nowrap;
   }
 }
@@ -17,5 +18,37 @@
   .caption-full {
     padding: 9px;
     color: #333;
+  }
+}
+
+.list-group.level-0 {
+  padding: 0;
+
+  .toggle-icon {
+    float: right;
+    margin-top: 4px;
+  }
+
+  .list-group {
+    margin-bottom: 0;
+
+    &.level-1 {
+      > .list-group-item {
+        border-width: 1px 1px 0;
+        padding-left: 25px;
+      }
+    }
+
+    &.level-2 {
+      > .list-group-item {
+        border-width: 1px 1px 0;
+        padding: 8px 10px 8px 40px;
+      }
+    }
+
+    .list-group-item {
+      border-radius: 0;
+      background-color: #eee;
+    }
   }
 }
