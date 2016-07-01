@@ -20,6 +20,7 @@ gem 'rails_utils'
 
 # App specific
 gem 'money-rails'
+gem 'closure_tree'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
