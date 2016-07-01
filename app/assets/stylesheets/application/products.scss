@@ -32,19 +32,19 @@
   .list-group {
     margin-bottom: 0;
 
-    &.level-1{
-      .list-group-item {
+    &.level-1 {
+      > .list-group-item {
         border-width: 1px 1px 0;
         padding-left: 30px;
       }
     }
 
-    &.level-2{
-      .list-group-item {
+    &.level-2 {
+      > .list-group-item {
         border: 0;
+        padding: 5px 10px 5px 20px;
       }
     }
-
 
     .list-group-item {
       border-radius: 0;
