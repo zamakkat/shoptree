@@ -1,29 +1,8 @@
 .row
   .col-md-3
-    / Root - Level 0 (Main categories)
-    ul.list-group.root
-      - @root_categories.each do |category|
-        li.list-group-item
-          = link_to category.name, products_path(category_id: category), remote: true
-          a data-toggle='collapse' href="#category-group-#{category.id}"
-            i.fa.fa-chevron-right.toggle-icon
-        / Level 1 (Sub categories)
-        ul.list-group.level-1.collapse id="category-group-#{category.id}"
-          - category.children.each do |sub_category|
-            li.list-group-item
-              = link_to sub_category.name, products_path(category_id: sub_category), remote: true
-              a data-toggle='collapse' href="#category-group-#{sub_category.id}"
-                i.fa.fa-chevron-right.toggle-icon
-              / Level 2 (Sub sub categories)
-              ul.list-group.level-2.collapse id="category-group-#{sub_category.id}"
-                - sub_category.children.each do |sub_sub_category|
-                  li.list-group-item
-                    = link_to sub_sub_category.name, products_path(category_id: sub_sub_category), remote: true
+    ul.list-group.level-0
+      = render 'products/category_filters', categories: @root_categories
 
-      a.list-group-item href='#'
-        | Category 2
-      a.list-group-item href='#'
-        | Category 3
   .col-md-9
     / TODO: Breadcrumbs
     = render 'products/index', products: @products
