@@ -27,12 +27,17 @@ namespace :dev do
     puts '== Starting to create categories =='
     categories_hash.each do |cat, subcategories_hash|
       category = Category.find_or_create_by(name: nice_titleize(cat), parent: nil)
+      FactoryGirl.create_list(:product, Faker::Number.between(0, 5), category: category)
+
       puts "- #{nice_titleize(cat)}"
       subcategories_hash.each do |sub_cat, sub_sub_cat_array|
         sub_category = Category.find_or_create_by(name: nice_titleize(sub_cat), parent: category)
+        FactoryGirl.create_list(:product, Faker::Number.between(0, 5), category: sub_category)
+
         puts "    + #{nice_titleize(sub_cat)}"
         sub_sub_cat_array.each do |sub_sub_cat|
-          Category.find_or_create_by(name: nice_titleize(sub_sub_cat), parent: sub_category)
+          sub_sub_category = Category.find_or_create_by(name: nice_titleize(sub_sub_cat), parent: sub_category)
+          FactoryGirl.create_list(:product, Faker::Number.between(0, 15), category: sub_sub_category)
           puts "        #{nice_titleize(sub_sub_cat)}"
         end
       end
