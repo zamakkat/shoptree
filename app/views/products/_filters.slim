@@ -1,0 +1,14 @@
+- categories.each do |category|
+  - if category.total_products_count > 0
+    li.list-group-item class=(is_active?(category) ? 'active' : '')
+      = link_to "#{category.name} (#{category.total_products_count})", url_for_category_filter(category.id), remote: true
+
+      - if category.children.any? && !is_active?(category)
+        a data-toggle='collapse' href="#category-group-#{category.id}"
+          - if is_collapsed?(category)
+            i.fa.fa-chevron-down.toggle-icon
+          - else
+            i.fa.fa-chevron-right.toggle-icon
+    - if category.children.any? && !is_active?(category)
+      ul.list-group.collapse class=(is_collapsed?(category) ? 'in' : '') class="level-#{depth + 1}" id="category-group-#{category.id}"
+        = render 'products/filters', categories: category.children, depth: depth + 1

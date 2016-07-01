@@ -1,8 +1,7 @@
 .row
   .col-md-3
-    - cache ['category_filters', @root_categories], expires_in: 1.day do
-      ul.list-group.level-0
-        = render 'products/category_filters', categories: @root_categories, depth: 0
+    p = link_to 'Clear all filters', products_path, remote: true
+    = render 'products/products_filter'
 
   .col-md-9
     = render 'products/index', products: @products

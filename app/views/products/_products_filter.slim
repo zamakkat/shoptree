@@ -1,0 +1,4 @@
+.products-filter
+  - cache ['filters', @active_categories || root_categories], expires_in: 1.hour do
+    ul.list-group.level-0
+      = render 'products/filters', categories: root_categories, depth: 0
