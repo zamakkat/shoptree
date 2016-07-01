@@ -1,5 +1,6 @@
 window.history.pushState(null, null, '<%= raw url_for(params) %>');
 
 $('.products-index').replaceWith("<%= escape_javascript(render 'products/index', products: @products) %>");
+$('.products-filter').replaceWith("<%= escape_javascript(render 'products/products_filter') %>");
 
 window.Shoptree.products.init_filter_links();
