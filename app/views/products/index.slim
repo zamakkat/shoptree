@@ -3,8 +3,7 @@
     p.lead
       | ShopTree
     .list-group
-      a.list-group-item href='#'
-        | Category 1
+      = link_to 'Category 1', products_path, remote: true, class: 'list-group-item'
       a.list-group-item href='#'
         | Category 2
       a.list-group-item href='#'

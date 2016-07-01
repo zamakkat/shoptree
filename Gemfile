@@ -40,7 +40,7 @@ group :development do
 
   # Guards
   gem 'guard-rspec', require: false
-  gem 'guard-livereload'
+  gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'terminal-notifier-guard'
 

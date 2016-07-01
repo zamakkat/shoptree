@@ -7,9 +7,12 @@ RSpec.describe ProductsController, type: :controller do
         get :index
       end
 
-      before { do_request }
+      before do
+        create_list(:product, 3)
+        do_request
+      end
 
-      it { expect(assigns[:products]).to be_a(Array) }
+      it { expect(assigns[:products].first).to be_a(Product) }
       it { expect(response).to be_success }
     end
 
@@ -18,9 +21,12 @@ RSpec.describe ProductsController, type: :controller do
         xhr :get, :index
       end
 
-      before { do_request }
+      before do
+        create_list(:product, 3)
+        do_request
+      end
 
-      it { expect(assigns[:products]).to be_a(Array) }
+      it { expect(assigns[:products].first).to be_a(Product) }
       it { expect(response).to have_http_status(200) }
       it { expect(response).to render_template('products/index') }
     end
