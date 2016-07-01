@@ -19,3 +19,36 @@
     color: #333;
   }
 }
+
+.list-group.root {
+  padding: 0;
+  overflow: hidden;
+
+  .toggle-icon {
+    float: right;
+    margin-top: 4px;
+  }
+
+  .list-group {
+    margin-bottom: 0;
+
+    &.level-1{
+      .list-group-item {
+        border-width: 1px 1px 0;
+        padding-left: 30px;
+      }
+    }
+
+    &.level-2{
+      .list-group-item {
+        border: 0;
+      }
+    }
+
+
+    .list-group-item {
+      border-radius: 0;
+      background-color: #eee;
+    }
+  }
+}
