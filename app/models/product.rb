@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
-  belongs_to :category, counter_cache: true
+  has_many :category_products
+  has_many :categories, through: :category_products
 
   monetize :price_cents
 end

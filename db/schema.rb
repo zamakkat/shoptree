@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701111827) do
+ActiveRecord::Schema.define(version: 20160701121103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20160701111827) do
   add_index "category_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "category_anc_desc_idx", unique: true, using: :btree
   add_index "category_hierarchies", ["descendant_id"], name: "category_desc_idx", using: :btree
 
+  create_table "category_products", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "product_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "category_products", ["category_id"], name: "index_category_products_on_category_id", using: :btree
+  add_index "category_products", ["product_id"], name: "index_category_products_on_product_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "name"
@@ -45,5 +55,7 @@ ActiveRecord::Schema.define(version: 20160701111827) do
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
+  add_foreign_key "category_products", "categories"
+  add_foreign_key "category_products", "products"
   add_foreign_key "products", "categories"
 end
