@@ -162,4 +162,43 @@ SimpleForm.setup do |config|
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
+
+  # Add 'btn' class by default to all submit buttons
+  config.button_class = 'btn'
+
+  # Disable browser validations by default. We are using jQuery valdiations
+  config.browser_validations = false
+
+  # Set which wrappers to use
+  config.default_wrapper = :vertical_form
+  config.wrapper_mappings = {
+    boolean: :horizontal_boolean
+  }
+
+  # Wrappers
+  config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label, class: 'control-label'
+
+    b.use :input, class: 'form-control'
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :error, wrap_with: { tag: 'label', class: 'help-block' }
+  end
+
+  config.wrappers :horizontal_boolean, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.wrapper tag: 'div', class: 'checkbox' do |ba|
+      ba.use :label_input, class: 'form-right'
+    end
+
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+  end
 end

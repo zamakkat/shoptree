@@ -1,0 +1,11 @@
+= simple_form_for [:admin, @product] do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :price
+  .form-actions
+    = link_to 'Back', admin_products_path, class: 'btn btn-default m-r-10'
+    - if @product.persisted?
+      = link_to 'Show', admin_product_path(@product), class: 'btn btn-info m-r-10'
+      = link_to 'Destroy', admin_product_path(@product), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger m-r-10'
+    = f.button :submit, class: 'btn-primary pull-right'
