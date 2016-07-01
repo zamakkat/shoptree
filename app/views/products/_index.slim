@@ -1,4 +1,11 @@
 .products-index
+  ol.breadcrumb
+    li = link_to 'Products', products_path, remote: true
+    - if @category
+      - @category.ancestors.reverse_each do |ancestor|
+        li = link_to ancestor.name, products_path(category_id: ancestor), remote: true
+      li.active = @category.name
+
   .row
     - products.each do |product|
       .col-sm-4

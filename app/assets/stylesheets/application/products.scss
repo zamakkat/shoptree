@@ -1,26 +1,36 @@
-.caption {
-  height: 110px;
-  overflow: hidden;
+// Products
+.products-index {
+  p.spinner {
+    text-align: center;
+    font-size: 4em;
+    margin-top: 40px;
+  }
 
-  h4 {
-    font-size: 14px;
-    white-space: nowrap;
+  .caption {
+    height: 110px;
+    overflow: hidden;
+
+    h4 {
+      font-size: 14px;
+      white-space: nowrap;
+    }
+  }
+
+  .thumbnail {
+    padding: 0;
+
+    img {
+      width: 100%;
+    }
+
+    .caption-full {
+      padding: 9px;
+      color: #333;
+    }
   }
 }
 
-.thumbnail {
-  padding: 0;
-
-  img {
-    width: 100%;
-  }
-
-  .caption-full {
-    padding: 9px;
-    color: #333;
-  }
-}
-
+// Filters
 .list-group.level-0 {
   padding: 0;
 
