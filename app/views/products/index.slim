@@ -1,7 +1,8 @@
 .row
   .col-md-3
-    ul.list-group.level-0
-      = render 'products/category_filters', categories: @root_categories
+    - cache ['category_filters', @root_categories], expires_in: 1.day do
+      ul.list-group.level-0
+        = render 'products/category_filters', categories: @root_categories, depth: 0
 
   .col-md-9
     / TODO: Breadcrumbs

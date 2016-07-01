@@ -1,10 +1,10 @@
 - categories.each do |category|
   li.list-group-item
-    = link_to category.name, products_path(category_id: category), remote: true
+    = link_to "#{category.name} (#{category.total_products_count})", products_path(category_id: category), remote: true
 
     - if category.children.any?
       a data-toggle='collapse' href="#category-group-#{category.id}"
         i.fa.fa-chevron-right.toggle-icon
   - if category.children.any?
-    ul.list-group.collapse class="level-#{category.depth + 1}" id="category-group-#{category.id}"
-      = render 'products/category_filters', categories: category.children
+    ul.list-group.collapse class="level-#{depth + 1}" id="category-group-#{category.id}"
+      = render 'products/category_filters', categories: category.children, depth: depth + 1
