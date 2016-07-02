@@ -1,8 +1,4 @@
 module ProductsHelper
-  def root_categories
-    Category.roots
-  end
-
   # Category is active if it belongs to the filtering criteria
   def is_active?(category)
     @active_categories&.include?(category)
