@@ -1,5 +1,5 @@
 module AdminHelper
   def category_hierarchy(category)
-    (category.ancestors + [category]).collect(&:name).join(' > ')
+    ([category] + category.ancestors).reverse.collect(&:name).join(' > ')
   end
 end
