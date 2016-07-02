@@ -1,0 +1,11 @@
+dt Name
+dd = @category.name
+dt Depth (number of parents)
+dd = @category.level
+- if @category.ancestors.any?
+  dt Parents
+  dd = category_hierarchy @category.parent
+
+.m-t-10
+= link_to 'Back', admin_categories_path, class: 'btn btn-default m-r-10'
+= link_to 'Edit', edit_admin_category_path(@category), class: 'btn btn-warning m-r-10'
