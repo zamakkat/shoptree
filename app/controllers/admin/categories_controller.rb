@@ -3,7 +3,7 @@ class Admin::CategoriesController < ApplicationController
 
   # GET /admin/categories
   def index
-    @categories = Category.all.sort_by(&:name)
+    @categories = Category.roots
   end
 
   # GET /admin/categories/1

@@ -12,6 +12,7 @@
  *
  *= require ./shared/base
  *= require ./shared/layout
+ *= require_tree ./admin
  *= require_tree ./application
  *= require_self
  */
