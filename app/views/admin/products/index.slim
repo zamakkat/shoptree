@@ -19,7 +19,7 @@ table.table.table-hover.table-condensed
       tr
         td = product.name
         td = product.description
-        td = product.price
+        td = humanized_money_with_symbol product.price
         td = link_to 'Show', admin_product_path(product), class: 'btn btn-xs btn-info'
         td = link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-xs btn-warning'
         td = link_to 'Destroy', admin_product_path(product), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'

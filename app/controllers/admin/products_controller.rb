@@ -3,7 +3,7 @@ class Admin::ProductsController < ApplicationController
 
   # GET /admin/products
   def index
-    @products = Product.all
+    @products = Product.all.sort_by(&:name)
   end
 
   # GET /admin/products/1
@@ -42,7 +42,7 @@ class Admin::ProductsController < ApplicationController
   # DELETE /admin/products/1
   def destroy
     @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
+    redirect_to admin_products_path, notice: 'Product was successfully destroyed.'
   end
 
   private

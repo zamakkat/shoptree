@@ -1,3 +1,13 @@
-= link_to 'Edit', edit_admin_product_path(@product)
-'|
-= link_to 'Back', admin_products_path
+dt Name
+dd = @product.name
+dt Description
+dd = @product.description
+dt Price
+dd = humanized_money_with_symbol @product.price
+dt Categories
+- @product.categories.each do |category|
+  dd = category_hierarchy category
+
+.m-t-10
+= link_to 'Back', admin_products_path, class: 'btn btn-default m-r-10'
+= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-warning m-r-10'
