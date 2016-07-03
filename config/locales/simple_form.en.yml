@@ -29,3 +29,10 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+
+    hints:
+      product:
+        categories: Use Cmd(⌘) / Ctrl to select multiple categories
+
+      category:
+        parent: Select blank for top level category

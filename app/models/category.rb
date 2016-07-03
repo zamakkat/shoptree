@@ -7,4 +7,8 @@ class Category < ActiveRecord::Base
   def total_products_count
     self_and_descendants.collect(&:products_count).sum
   end
+
+  def all_products
+    self_and_descendants.collect(&:products).flatten.uniq
+  end
 end

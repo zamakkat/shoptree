@@ -1,6 +1,7 @@
 - categories.each do |category|
   tr class=("level-#{category.depth}")
     td #{'-' * category.depth} #{category.name}
+    td = category.total_products_count
     td = link_to 'Show', admin_category_path(category), class: 'btn btn-xs btn-info'
     td = link_to 'Edit', edit_admin_category_path(category), class: 'btn btn-xs btn-warning'
     td = link_to 'Destroy', admin_category_path(category), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'
