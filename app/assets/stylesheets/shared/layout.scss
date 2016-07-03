@@ -12,6 +12,11 @@ body {
   }
 }
 
+html.turbolinks-progress-bar::before {
+  background-color: #06aae3 !important;
+  height: 3px !important;
+}
+
 footer {
   margin: 20px 0 30px;
 }
