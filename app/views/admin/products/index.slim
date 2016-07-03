@@ -1,0 +1,25 @@
+h1
+  ' Products
+  = link_to 'New Product', new_admin_product_path, class: 'btn btn-primary'
+
+hr
+
+table.table.table-hover.table-condensed
+  thead
+    tr
+      th Name
+      th Description
+      th Price
+      th
+      th
+      th
+
+  tbody
+    - @products.each do |product|
+      tr
+        td = product.name
+        td = product.description
+        td = humanized_money_with_symbol product.price
+        td = link_to 'Show', admin_product_path(product), class: 'btn btn-xs btn-info'
+        td = link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-xs btn-warning'
+        td = link_to 'Destroy', admin_product_path(product), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'

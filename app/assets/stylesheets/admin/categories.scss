@@ -1,0 +1,21 @@
+.admin_categories.index {
+  tr {
+    &.level-0 {
+      td:first-child {
+        padding-left: 10px;
+      }
+    }
+
+    &.level-1 {
+      td:first-child {
+        padding-left: 30px;
+      }
+    }
+
+    &.level-2 {
+      td:first-child {
+        padding-left: 50px;
+      }
+    }
+  }
+}

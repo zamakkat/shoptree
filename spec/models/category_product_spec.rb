@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CategoryProduct, type: :model do
   context 'associations' do
-    it { is_expected.to belong_to(:category) }
+    it { is_expected.to belong_to(:category).counter_cache(:products_count) }
     it { is_expected.to belong_to(:product) }
   end
 

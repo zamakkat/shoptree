@@ -1,0 +1,16 @@
+h1
+  ' Categories
+  = link_to 'New Category', new_admin_category_path, class: 'btn btn-primary'
+
+hr
+
+table.table.table-hover.table-condensed
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    = render 'admin/categories/index_row', categories: root_categories
