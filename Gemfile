@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'rails_utils'
 gem 'simple_form'
+gem 'select2-rails'
 
 # App specific
 gem 'money-rails'
