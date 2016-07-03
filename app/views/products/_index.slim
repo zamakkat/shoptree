@@ -3,9 +3,7 @@
     li = link_to 'Products', products_path, remote: true
     - if params[:category_ids]
       li.active Search
-
-      p.pull-right Showing #{products.count} products
-
+    p.pull-right Showing #{products.count} products
 
   .row
     - products.each do |product|
