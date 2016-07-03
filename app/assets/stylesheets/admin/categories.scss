@@ -17,5 +17,17 @@
         padding-left: 50px;
       }
     }
+
+    &.level-3 {
+      td:first-child {
+        padding-left: 70px;
+      }
+    }
+
+    &.level-4 {
+      td:first-child {
+        padding-left: 90px;
+      }
+    }
   }
 }
