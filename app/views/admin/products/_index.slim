@@ -1,0 +1,28 @@
+table.table.table-hover.table-condensed
+  thead
+    tr
+      th Name
+      th Description
+      th Price
+      th Category
+      th
+      th
+      th
+
+  tbody
+    - if products.any?
+      - products.each do |product|
+        tr
+          td = product.name
+          td = product.description
+          td = humanized_money_with_symbol product.price
+          td
+            - product.categories.each do |category|
+              = category_hierarchy category
+          td = link_to 'Show', admin_product_path(product), class: 'btn btn-xs btn-info'
+          td = link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-xs btn-warning'
+          td = link_to 'Destroy', admin_product_path(product), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'
+    - else
+      tr
+        td colspan=7
+          .text-center No products available
