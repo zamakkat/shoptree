@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   def index
-    @root_categories = Category.roots
     @active_categories = Category.where(id: params[:category_ids])
     categories = @active_categories.collect(&:self_and_descendant_ids).flatten.uniq
 
