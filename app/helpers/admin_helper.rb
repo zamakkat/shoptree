@@ -13,7 +13,6 @@ module AdminHelper
   def category_options(categories)
     options = []
     categories.each do |category|
-      puts category
       options << [yield(category), category.id]
       if category.children.any?
         options += category_options(category.children) { |c| "#{'-' * c.depth} #{c.name}" }

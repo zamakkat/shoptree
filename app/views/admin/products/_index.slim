@@ -4,7 +4,7 @@ table.table.table-hover.table-condensed
       th Name
       th Description
       th Price
-      th Category
+      th Categories
       th
       th
       th
@@ -19,6 +19,7 @@ table.table.table-hover.table-condensed
           td
             - product.categories.each do |category|
               = category_hierarchy category
+              br
           td = link_to 'Show', admin_product_path(product), class: 'btn btn-xs btn-info'
           td = link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-xs btn-warning'
           td = link_to 'Destroy', admin_product_path(product), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'
