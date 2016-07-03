@@ -6,6 +6,10 @@ module AdminHelper
       .html_safe
   end
 
+  def category_hierarchy_no_links(category)
+    ([category] + category.ancestors).reverse.collect(&:name).join(' > ')
+  end
+
   def nested_categories_collection
     category_options(Category.roots) { |c| "#{'-' * c.depth} #{c.name}" }
   end
@@ -15,7 +19,7 @@ module AdminHelper
     categories.each do |category|
       options << [yield(category), category.id]
       if category.children.any?
-        options += category_options(category.children) { |c| "#{'-' * c.depth} #{c.name}" }
+        options += category_options(category.children) { |c| category_hierarchy_no_links(c) }
       end
     end
     options
